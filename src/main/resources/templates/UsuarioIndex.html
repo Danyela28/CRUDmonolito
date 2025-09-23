@@ -4,6 +4,14 @@
       layout:decorate="~{layout}">
 
     <body layout:fragment="body">
+        <div class="d-flex justify-content-end p-3">
+    <form th:action="@{/usuario/logout}" method="post">
+        <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" class="btn btn-outline-danger">
+            <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+        </button>
+            <hr>
+        </div>
         <div class="container">
             <div class="card ">
                 <h5 class="card-header text-bg-dark">Busqueda Rapida</h5>
@@ -41,7 +49,7 @@
 
 
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <a th:href="@{/usuario/action/{IdUsuario}(IdUsuario = 0)}" class="btn btn-outline-primary"><i class="bi bi-person-add"></i>Nuevo Usuario</a>
+                            <a sec:authorize="hasAnyRole('ADMIN')" th:href="@{/usuario/action/{IdUsuario}(IdUsuario = 0)}" class="btn btn-outline-primary"><i class="bi bi-person-add"></i>Nuevo Usuario</a>
                         </div>
                         <hr>
                         <table class="table table-hover">
@@ -61,7 +69,7 @@
                             </thead>
                             <tbody>
                                 <tr th:each="usuario : ${usuarios}">
-                                    <td><a th:href="@{/usuario/action/{idUsuario}(idUsuario = ${usuario.IdUsuario})}" class="btn btn-outline-warning"><i class="bi bi-pencil-square"></i></a> <a class="btn btn-outline-danger" th:href="@{/usuario/delete/{IdUsuario}(IdUsuario = ${usuario.IdUsuario})}"><i class="bi bi-trash"></i></a></td>
+                                    <td><a sec:authorize="hasAnyRole('ADMIN')" th:href="@{/usuario/action/{idUsuario}(idUsuario = ${usuario.IdUsuario})}" class="btn btn-outline-warning"><i class="bi bi-pencil-square"></i></a> <a sec:authorize="hasAnyRole('ADMIN')" class="btn btn-outline-danger" th:href="@{/usuario/delete/{IdUsuario}(IdUsuario = ${usuario.IdUsuario})}"><i class="bi bi-trash"></i></a></td>
                                     <td th:text="|${usuario.Nombre} ${usuario.ApellidoPaterno} ${usuario.ApellidoMaterno}|"></td>
                                     <td th:text="|Tel: ${usuario.Celular} Cel:${usuario.Telefono}|"></td>
                                     <td th:text="|${usuario.Email}, ${usuario.CURP}, ${usuario.FechaNacimiento}|"></td>

@@ -96,7 +96,11 @@ public class UsuarioController {
     
     @Autowired
     private DireccionJPADAOImplementation direccionJPADAOImplementation;
-
+    
+     @GetMapping("/Login")
+    public String LoginV() {
+        return "Login"; 
+    }
     @GetMapping
     public String Index(Model model) {
 //        Result result = usuarioDAOImplementation.UsuarioDireccionGetAll(new Usuario("", "", "", new Rol()));
