@@ -35,7 +35,7 @@ public class Usuario {
     @Column(name="celular")
     private String Celular;
     @Column(name="username")
-    private String UserName;
+    private String username;
     @Column(name="email")
     private String Email;
     @Column(name="password")
@@ -49,6 +49,8 @@ public class Usuario {
     @Lob
     @Column( name="imagen")
     private String Imagen;
+    @Column(name="status")
+    private int Status;
     @ManyToOne
     @JoinColumn (name="idrol")
     public Rol Rol;
@@ -63,7 +65,7 @@ public class Usuario {
         this.ApellidoMaterno = usuarioML.getApellidoMaterno();
         this.FechaNacimiento = usuarioML.getFechaNacimiento();
         this.Celular = usuarioML.getCelular();
-        this.UserName = usuarioML.getUserName();
+        this.username = usuarioML.getUserName();
         this.Email = usuarioML.getEmail();
         this.Password = usuarioML.getPassword();
         this.Sexo = usuarioML.getSexo();
@@ -134,11 +136,11 @@ public class Usuario {
     public void setCelular(String Celular) {
         this.Celular = Celular;
     }
-    public String getUserName(){
-        return UserName;
+    public String getUsername(){
+        return username;
     }
-    public void setUserName(String userName){
-        this.UserName = userName;
+    public void setUsername(String username){
+        this.username = username;
     }
     public String getEmail(){
         return Email;
@@ -196,7 +198,12 @@ public class Usuario {
     public void setImagen(String Imagen) {
         this.Imagen = Imagen;
     }
-
+    public int getStatus(){
+        return Status;
+    }
+    public void setStatus(int Status){
+        this.Status = Status;
+    }
     
 
    

@@ -236,12 +236,14 @@
                 <h1>Bienvenido</h1>
                 <p>Inicia sesión en tu cuenta</p>
             </div>
-
-         
+            
+            <div th:if="${param.error}" class="error-message">
+                <p th:text="${param.error}" style="color: red; font-weight: bold;"></p>
+            </div>
 
             <form method="post" th:action="@{/usuario/Login}" class="login-form">
                 <div class="form-group">
-                    <label for="username">Usuario o correo electrónico</label>
+                    <label for="username">Usuario</label>
                     <div class="input-with-icon">
                         <i class="fas fa-user"></i>
                         <input type="text" id="username" name="username" class="form-control" placeholder="Ingresa tu usuario o email" required>
@@ -266,7 +268,6 @@
             document.addEventListener('DOMContentLoaded', function () {
                 const loginForm = document.querySelector('.login-form');
 
-                // Efecto sutil en los campos de entrada
                 const inputs = document.querySelectorAll('.form-control');
                 inputs.forEach(input => {
                     input.addEventListener('focus', function () {

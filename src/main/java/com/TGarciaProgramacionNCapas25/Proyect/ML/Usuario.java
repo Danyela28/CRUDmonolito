@@ -58,7 +58,7 @@ public class Usuario {
         this.ApellidoMaterno = usuarioJPA.getApellidoMaterno();
         this.FechaNacimiento = usuarioJPA.getFechaNacimiento();
         this.Celular = usuarioJPA.getCelular();
-        this.UserName = usuarioJPA.getUserName();
+        this.UserName = usuarioJPA.getUsername();
         this.Email = usuarioJPA.getEmail();
         this.Password = usuarioJPA.getPassword();
         this.Sexo = usuarioJPA.getSexo();
@@ -100,6 +100,9 @@ public class Usuario {
             
         }
         
+    }
+    public Usuario(int IdUsuario){
+        this.IdUsuario = IdUsuario;
     }
     
     public void setIdUsuario(int idUsuario){

@@ -49,7 +49,7 @@ public class DemoRestController {
                        + "Teléfono: " + usuario.getTelefono() + "\n "
                        + "Email: " + usuario.getEmail() + "\n"
                        + "Sexo: " + usuario.getSexo() + "\n  "
-                       + "Usuario: " + usuario.getUserName();
+                       + "Usuario: " + usuario.getUsername();
                        
     
 
